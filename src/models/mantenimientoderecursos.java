@@ -1,8 +1,6 @@
 package models;
 
-public class Mantenimientoderecursos{
-    private String manteni_recursoId;
-    private String nombre_mantenimientorecursos;
+public class Mantenimientoderecursos extends Registro{
     private String categoria_mantenimientorecursos;
     private String estado_mantenimientorecursos;
     private String ubicacion_mantenimientorecursos;

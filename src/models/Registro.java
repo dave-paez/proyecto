@@ -1,15 +1,15 @@
 package models;
 
 //CLASE PADRE
-public class Registo {
+public class Registro {
     protected String id;
     protected String nombre;
 
-    public Registo(String id, String nombre) {
+    public Registro(String id, String nombre) {
         this.id = id;
         this.nombre = nombre;
     }
 
-    public Registo() {
+    public Registro() {
     }
 }
