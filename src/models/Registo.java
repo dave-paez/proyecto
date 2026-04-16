@@ -1,5 +1,6 @@
 package models;
 
+//CLASE PADRE
 public class Registo {
     protected String id;
     protected String nombre;
