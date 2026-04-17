@@ -5,7 +5,7 @@ import models.Participantes;
 import models.Patrocinio;
 import models.Proyectos;
 import models.Recursos;
-import models.Verificacion;
+import models.Resgistro;
 
 // importamos el array
 import java.util.ArrayList;
@@ -22,7 +22,7 @@ public class App {
 		ArrayList<Recursos> recursosList = new ArrayList<>();
 		ArrayList<Patrocinio> patrocinioList = new ArrayList<>();
 		ArrayList<Mantenimientoderecursos> mantenimientoList = new ArrayList<>();
-		ArrayList<Verificacion> registroList = new ArrayList<>();
+		ArrayList<Resgistro> registroList = new ArrayList<>();
 
 		// CREACION DE VARIABLES PARA PROYECTOS
 		/*

@@ -1,6 +1,6 @@
 package models;
 
-public class Participantes extends Registro{
+public class Participantes {
 
     private String ubicacion_participante;
     private String correo_participante;
