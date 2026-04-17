@@ -1,7 +1,7 @@
 package models;
 
 //CLASE PADRE
-public class Registro {
+public class Registro exten Verificacion{
     protected String id;
     protected String nombre;
 
