@@ -1,30 +1,28 @@
 
 //Importamos los modelos
-import models.mantenimientoderecursos;
-import models.participantes;
-import models.patrocinio;
-import models.proyectos;
-import models.recursos;
-import models.registro;
+import models.Mantenimientoderecursos;
+import models.Participantes;
+import models.Patrocinio;
+import models.Proyectos;
+import models.Recursos;
+import models.Verificacion;
 
 // importamos el array
 import java.util.ArrayList;
 //salida de datos, consola o ventana emergente, en este caso usaremos una ventana emergente.
 import javax.swing.JOptionPane;
 
-
 public class App {
 	public static void main(String[] args) throws Exception {
 		// Creamos un ArrayList para cada modelo
 		// esto es como un invenatario para cada modelo, donde guardaremos los objetos
 		// creados de cada clase
-		ArrayList<proyectos> proyectosList = new ArrayList<>();
-		ArrayList<participantes> participantesList = new ArrayList<>();
-		ArrayList<recursos> recursosList = new ArrayList<>();
-		ArrayList<patrocinio> patrocinioList = new ArrayList<>();
-		ArrayList<mantenimientoderecursos> mantenimientoList = new ArrayList<>();
-		ArrayList<registro> registroList = new ArrayList<>();
-
+		ArrayList<Proyectos> proyectosList = new ArrayList<>();
+		ArrayList<Participantes> participantesList = new ArrayList<>();
+		ArrayList<Recursos> recursosList = new ArrayList<>();
+		ArrayList<Patrocinio> patrocinioList = new ArrayList<>();
+		ArrayList<Mantenimientoderecursos> mantenimientoList = new ArrayList<>();
+		ArrayList<Verificacion> registroList = new ArrayList<>();
 
 		// CREACION DE VARIABLES PARA PROYECTOS
 		/*
@@ -34,7 +32,6 @@ public class App {
 		 * y despues agregaremos el objeto creado a su inventario propio, osea a los
 		 * ArrayList.
 		 */
-
 
 		// registro
 
@@ -114,7 +111,7 @@ public class App {
 								contraseña_delregistro = JOptionPane.showInputDialog(
 										"Ingrese su contraseña:");
 								// for each para comparar los datos ingresados con los guardados en el array
-								for (registro comprobar : registroList) {
+								for (Verificacion comprobar : registroList) {
 									// comparamos el ID y la contraseña
 									if (comprobar.getPersonaladiministrativoId().equals(Id_delregistro)
 											&& comprobar.getContraseña_personaladiministrativo().equals(contraseña_delregistro)) {
@@ -149,7 +146,7 @@ public class App {
 															// registrar proyecto
 															Id_delproyecto = JOptionPane.showInputDialog("Ingrese el ID del proyecto:");
 															boolean IDproyectoexiste = false;
-															for (proyectos comprobar : proyectosList) {
+															for (Proyectos comprobar : proyectosList) {
 																if (comprobar.getProyectoId().equals(Id_delproyecto)) {
 																	IDproyectoexiste = true;
 																	break;
@@ -165,7 +162,7 @@ public class App {
 																estado_delproyecto = JOptionPane.showInputDialog("Ingrese el estado del proyecto");
 																fechaInicio_delproyecto = JOptionPane.showInputDialog("Ingrese la fecha de inicio");
 																fechaFin_delproyecto = JOptionPane.showInputDialog("Ingrese la fecha de fin");
-																proyectosList.add(new proyectos(Id_delproyecto, nombre_delproyecto, tipo_delproyecto,
+																proyectosList.add(new Proyectos(Id_delproyecto, nombre_delproyecto, tipo_delproyecto,
 																		descripcion_delproyecto, fechaInicio_delproyecto, fechaFin_delproyecto,
 																		estado_delproyecto));
 																JOptionPane.showMessageDialog(null, "proyecto registrado");
@@ -177,7 +174,7 @@ public class App {
 																JOptionPane.showMessageDialog(null, "No hay proyectos registrados");
 															} else {
 																String hoja = "";
-																for (proyectos mostrarproyectoss : proyectosList) {
+																for (Proyectos mostrarproyectoss : proyectosList) {
 																	hoja += "------ \n"
 																			+ "ID: " + mostrarproyectoss.getProyectoId() + "\n"
 																			+ "nombre: " + mostrarproyectoss.getNombre_proyecto() + "\n"
@@ -194,7 +191,7 @@ public class App {
 															// actualizar proyecto
 															Id_delproyecto = JOptionPane.showInputDialog("Ingrese el ID del proyecto a actualizar");
 															boolean proyectoactualizado = false;
-															for (proyectos actualizarrr : proyectosList) {
+															for (Proyectos actualizarrr : proyectosList) {
 																if (actualizarrr.getProyectoId().equals(Id_delproyecto)) {
 																	proyectoactualizado = true;
 																	nombre_delproyecto = JOptionPane.showInputDialog("Ingrese el nuevo nombre");
@@ -260,7 +257,7 @@ public class App {
 														case 1:
 															Id_delosparticipantes = JOptionPane.showInputDialog("Ingrese el ID del participante:");
 															boolean existeparticipante = false; // apagado
-															for (participantes comprobarIDparticipante : participantesList) {
+															for (Participantes comprobarIDparticipante : participantesList) {
 																if (comprobarIDparticipante.getParticipanteId().equals(Id_delosparticipantes)) {
 																	existeparticipante = true;
 																	break;
@@ -279,7 +276,7 @@ public class App {
 																		.showInputDialog("Ingrese el correo del participante:");
 																rol_delosparticipante = JOptionPane.showInputDialog("Ingrese el rol del participante:");
 																participantesList
-																		.add(new participantes(Id_delosparticipantes, nombre_delosparticipantes,
+																		.add(new Participantes(Id_delosparticipantes, nombre_delosparticipantes,
 																				ubicacion_participante, correo_delosparticipantes, rol_delosparticipante));
 																JOptionPane.showMessageDialog(null, "Participante registrado exitosamente");
 															}
@@ -289,7 +286,7 @@ public class App {
 																JOptionPane.showMessageDialog(null, "No hay participantes registrados");
 															} else {
 																String hojadepapeldos = "";
-																for (participantes mostrarlistaparticipante : participantesList) {
+																for (Participantes mostrarlistaparticipante : participantesList) {
 																	hojadepapeldos += "------ \n"
 																			+ "ID: " + mostrarlistaparticipante.getParticipanteId() + "\n"
 																			+ "nombre: " + mostrarlistaparticipante.getNombre_participante() + "\n"
@@ -304,7 +301,7 @@ public class App {
 															Id_delosparticipantes = JOptionPane
 																	.showInputDialog("Ingrese el ID del participante que desea buscar");
 															boolean participanteencontrado = false;
-															for (participantes buscarparti : participantesList) {
+															for (Participantes buscarparti : participantesList) {
 																if (buscarparti.getParticipanteId().equals(Id_delosparticipantes)) {
 																	String hojadepapeltres;
 																	hojadepapeltres = "PARTICIPANTE \n"
@@ -327,7 +324,7 @@ public class App {
 															Id_delosparticipantes = JOptionPane
 																	.showInputDialog("Ingrese el ID del participante que desea actualizar");
 															boolean seencontro = false;
-															for (participantes actualizarparticipante : participantesList) {
+															for (Participantes actualizarparticipante : participantesList) {
 																if (actualizarparticipante.getParticipanteId().equals(Id_delosparticipantes)) {
 																	seencontro = true;
 																	nombre_delosparticipantes = JOptionPane
@@ -389,7 +386,7 @@ public class App {
 																JOptionPane.showMessageDialog(null, "No hay recursos registrados");
 															} else {
 																String hojadepapel = " ";
-																for (recursos mostrarlista : recursosList) {
+																for (Recursos mostrarlista : recursosList) {
 																	hojadepapel += "------"
 																			+ "ID: " + mostrarlista.getRecursoId() + "\n"
 																			+ "nombre: " + mostrarlista.getNombre_delrecurso() + "\n"
@@ -403,7 +400,7 @@ public class App {
 														case 2:
 															Id_delrecurso = JOptionPane.showInputDialog("Ingrese el ID del recurso:");
 															boolean IDyaexiste = false; // apagado
-															for (recursos comprobarIDrecurso : recursosList) {
+															for (Recursos comprobarIDrecurso : recursosList) {
 																if (comprobarIDrecurso.getRecursoId().equals(Id_delrecurso)) {
 																	IDyaexiste = true;
 																	break;
@@ -416,7 +413,7 @@ public class App {
 																categoria_delrecurso = JOptionPane.showInputDialog("Ingrese la categoria del recurso:");
 																estado_delrecurso = JOptionPane.showInputDialog("Ingrese el estado del recurso:");
 																ubicacion_delrecurso = JOptionPane.showInputDialog("Ingrese la ubicacion del recurso:");
-																recursosList.add(new recursos(Id_delrecurso, nombre_delrecurso, categoria_delrecurso,
+																recursosList.add(new Recursos(Id_delrecurso, nombre_delrecurso, categoria_delrecurso,
 																		estado_delrecurso, ubicacion_delrecurso));
 																JOptionPane.showMessageDialog(null, "Recurso registrado exitosamente");
 															}
@@ -425,7 +422,7 @@ public class App {
 															Id_delrecurso = JOptionPane
 																	.showInputDialog("Ingrese el ID del recurso que desea actualizar:");
 															boolean IDencontrado = false; // apagado
-															for (recursos actualizar : recursosList) {
+															for (Recursos actualizar : recursosList) {
 																if (actualizar.getRecursoId().equals(Id_delrecurso)) {
 																	IDencontrado = true;
 																	nombre_delrecurso = JOptionPane
@@ -491,7 +488,7 @@ public class App {
 																JOptionPane.showMessageDialog(null, "No hay patrocinadores registrados");
 															} else {
 																String hojotaa = "";
-																for (patrocinio mirarpatrocinadores : patrocinioList) {
+																for (Patrocinio mirarpatrocinadores : patrocinioList) {
 																	hojotaa += "------ \n"
 																			+ "ID: " + mirarpatrocinadores.getPatrocinadorId() + "\n"
 																			+ "nombre: " + mirarpatrocinadores.getNombre_patrocinador() + "\n"
@@ -506,7 +503,7 @@ public class App {
 															// meter patrocinador
 															Id_delpatrocinador = JOptionPane.showInputDialog("Ingrese el ID del patrocinador:");
 															boolean Idpatrocinadorexiste = false;
-															for (patrocinio comprobar : patrocinioList) {
+															for (Patrocinio comprobar : patrocinioList) {
 																if (comprobar.getPatrocinadorId().equals(Id_delpatrocinador)) {
 																	Idpatrocinadorexiste = true;
 																	break;
@@ -520,7 +517,7 @@ public class App {
 																contacto_delpatrocinador = JOptionPane.showInputDialog("Ingrese el contacto");
 																tipo_depatrocinador = JOptionPane.showInputDialog("Ingrese el tipo de patrocinador");
 																aporte_delpatrocinador = JOptionPane.showInputDialog("Ingrese el aporte");
-																patrocinioList.add(new patrocinio(Id_delpatrocinador, nombre_delpatrocinador,
+																patrocinioList.add(new Patrocinio(Id_delpatrocinador, nombre_delpatrocinador,
 																		contacto_delpatrocinador, tipo_depatrocinador, aporte_delpatrocinador));
 																JOptionPane.showMessageDialog(null, "patrocinador registrado");
 															}
@@ -530,7 +527,7 @@ public class App {
 															Id_delpatrocinador = JOptionPane
 																	.showInputDialog("Ingrese el ID del patrocinador a actualizar");
 															boolean patrocinadoractualizado = false;
-															for (patrocinio update : patrocinioList) {
+															for (Patrocinio update : patrocinioList) {
 																if (update.getPatrocinadorId().equals(Id_delpatrocinador)) {
 																	patrocinadoractualizado = true;
 																	nombre_delpatrocinador = JOptionPane.showInputDialog("Ingrese el nuevo nombre");
@@ -578,7 +575,7 @@ public class App {
 											// -----------------------------------------------------------------------------------------------------------
 											case 5:
 												// MENU MANTENIMIENTO
-												// SAMUEL GONZALEZ 
+												// SAMUEL GONZALEZ
 												do {
 													opcionmantenimiento = Integer.parseInt(JOptionPane.showInputDialog("MANTENIMIENTO \n"
 															+ "1. Ver todos los objetos en mantenimiento \n"
@@ -593,7 +590,7 @@ public class App {
 																JOptionPane.showMessageDialog(null, "no hay objetos en mantenimiento registrados");
 															} else {
 																String hojita = "";
-																for (mantenimientoderecursos mostrar : mantenimientoList) {
+																for (Mantenimientoderecursos mostrar : mantenimientoList) {
 																	hojita += "------ \n"
 																			+ "ID: " + mostrar.getManteni_recursoId() + "\n"
 																			+ "nombre: " + mostrar.getNombre_mantenimientorecursos() + "\n"
@@ -609,7 +606,7 @@ public class App {
 															Id_mantenimientoderecursos = JOptionPane
 																	.showInputDialog("Ingrese el ID del mantenimiento:");
 															boolean Idmanteniexiste = false;
-															for (mantenimientoderecursos comprobar : mantenimientoList) {
+															for (Mantenimientoderecursos comprobar : mantenimientoList) {
 																if (comprobar.getManteni_recursoId().equals(Id_mantenimientoderecursos)) {
 																	Idmanteniexiste = true;
 																	break;
@@ -626,7 +623,7 @@ public class App {
 																ubicacion_mantenimientoderecursos = JOptionPane.showInputDialog("Ingrese la categoria");
 																fechadeingreso_mantenimientoderecursos = JOptionPane
 																		.showInputDialog("Ingrese la fecha de ingreso");
-																mantenimientoList.add(new mantenimientoderecursos(Id_mantenimientoderecursos,
+																mantenimientoList.add(new Mantenimientoderecursos(Id_mantenimientoderecursos,
 																		nombre_mantenimientoderecursos, categoria_mantenimientoderecursos,
 																		estado_mantenimientoderecursos, ubicacion_mantenimientoderecursos,
 																		fechadeingreso_mantenimientoderecursos));
@@ -638,7 +635,7 @@ public class App {
 															Id_mantenimientoderecursos = JOptionPane
 																	.showInputDialog("Ingrese el ID del objeto a actualizar");
 															boolean manteniactualizado = false;
-															for (mantenimientoderecursos cambiar : mantenimientoList) {
+															for (Mantenimientoderecursos cambiar : mantenimientoList) {
 																if (cambiar.getManteni_recursoId().equals(Id_mantenimientoderecursos)) {
 																	manteniactualizado = true;
 
@@ -729,7 +726,7 @@ public class App {
 					contraseña_delregistro = JOptionPane.showInputDialog("Ingrese su contraseña:");
 					// los pasamos al constructor de la clase registro, y lo agregamos a su
 					// inventario, osea al ArrayList de registro
-					registroList.add(new registro(Id_delregistro, contraseña_delregistro,
+					registroList.add(new Verificacion(Id_delregistro, contraseña_delregistro,
 							nombre_delregistro,
 							telefono_delregistro, correo_delregistro));
 					JOptionPane.showMessageDialog(null, "registrado exitosamente");
