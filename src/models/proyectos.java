@@ -1,6 +1,6 @@
 package models;
 
-public class Proyectos extends Registro {
+public class Proyectos {
 
     private String tipo_proyecto;
     private String descripcion_proyecto;
