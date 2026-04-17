@@ -1,6 +1,6 @@
 package models;
 
-public class Recursos extends Registro{
+public class Recursos {
 
     private String categoria_delrecurso;
     private String estado_delrecurso;
