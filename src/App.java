@@ -1,5 +1,6 @@
 
 //Importamos los modelos
+import models.Persona;
 import models.mantenimientoderecursos;
 import models.participantes;
 import models.patrocinio;
@@ -20,7 +21,7 @@ public class App {
 		ArrayList<proyectos> proyectosList = new ArrayList<>();
 		ArrayList<participantes> participantesList = new ArrayList<>();
 		ArrayList<recursos> recursosList = new ArrayList<>();
-		ArrayList<patrocinio> patrocinioList = new ArrayList<>();
+		ArrayList<Persona> patrocinioList = new ArrayList<>();
 		ArrayList<mantenimientoderecursos> mantenimientoList = new ArrayList<>();
 		ArrayList<registro> registroList = new ArrayList<>();
 
@@ -475,106 +476,134 @@ public class App {
 											case 4:
 												// MENU DE PATROCINIO
 												// JUAN DUARTE
+												//nuevo menu
 												do {
-													opcionpatrocinio = Integer.parseInt(JOptionPane.showInputDialog("PATROCINIO \n"
-															+ "1. Ver todos los patrocinios \n"
-															+ "2. Crear un nuevo perfil de patrocininador\n"
-															+ "3. Actualizar patrocinador \n"
-															+ "4. Eliminar patrocinador \n"
-															+ "5. Salir"));
+													opcionpatrocinio = Integer.parseInt(JOptionPane.showInputDialog(
+															"PATROCINIO\n" +
+																	"1. Ver todos los patrocinadores\n" +
+																	"2. Crear nuevo patrocinador\n" +
+																	"3. Actualizar patrocinador\n" +
+																	"4. Eliminar patrocinador\n" +
+																	"5. Ver información de un patrocinador\n" +
+																	"6. Ver rol de un patrocinador\n" +
+																	"7. Salir"));
 													switch (opcionpatrocinio) {
 														case 1:
-															// ver todos los patrocinadores
 															if (patrocinioList.isEmpty()) {
 																JOptionPane.showMessageDialog(null, "No hay patrocinadores registrados");
 															} else {
-																String hojotaa = "";
-																for (patrocinio mirarpatrocinadores : patrocinioList) {
-																	hojotaa += "------ \n"
-																			+ "ID: " + mirarpatrocinadores.getPatrocinadorId() + "\n"
-																			+ "nombre: " + mirarpatrocinadores.getPatrocinadorNombre() + "\n"
-																			+ "contacto: " + mirarpatrocinadores.getContacto_patrocinador() + "\n"
-																			+ "tipo: " + mirarpatrocinadores.getTipo_patrocinador() + "\n"
-																			+ "aporte: " + mirarpatrocinadores.getAporte_patrocinador() + "\n";
+																String listaPatrocinadores = "";
+																for (Persona nombredelista : patrocinioList) {
+																	patrocinio pat = (patrocinio) nombredelista;
+																	listaPatrocinadores += "ID: " + pat.getId() +
+																			" nombre: " + pat.getNombre() +
+																			" tipo: " + pat.getTipo_patrocinador() +
+																			" aporte: " + pat.getAporte_patrocinador()
+																			+ "--\n";
 																}
-																JOptionPane.showMessageDialog(null, "LISTA DE PATROCINADORES \n" + hojotaa);
+																JOptionPane.showMessageDialog(null, "LISTA DE PATROCINADORES\n" + listaPatrocinadores);
 															}
 															break;
-														case 2:
-															// meter patrocinador
-															Id_delpatrocinador = JOptionPane.showInputDialog("Ingrese el ID del patrocinador:");
-															boolean Idpatrocinadorexiste = false;
-															for (patrocinio comprobar : patrocinioList) {
-																if (comprobar.getPatrocinadorId().equals(Id_delpatrocinador)) {
-																	Idpatrocinadorexiste = true;
+														case 2:// crear patro
+															Id_delpatrocinador = JOptionPane.showInputDialog("Ingrese el id");
+															boolean idExiste = false;
+															for (Persona patro : patrocinioList) {
+																if (patro.getId().equals(Id_delpatrocinador)) {
+																	idExiste = true;
 																	break;
 																}
 															}
-															if (Idpatrocinadorexiste) {
-																JOptionPane.showMessageDialog(null, "ese ID ya existe");
+															if (idExiste) {
+																JOptionPane.showMessageDialog(null, "ese id ya existe");
 															} else {
-																nombre_delpatrocinador = JOptionPane
-																		.showInputDialog("Ingrese el nombre del patrocinador");
-																contacto_delpatrocinador = JOptionPane.showInputDialog("Ingrese el contacto");
-																tipo_depatrocinador = JOptionPane.showInputDialog("Ingrese el tipo de patrocinador");
-																aporte_delpatrocinador = JOptionPane.showInputDialog("Ingrese el aporte");
-																correo_delpatrocinador = JOptionPane
-																		.showInputDialog("Ingrese el correo del patrocinador");
-																patrocinioList.add(new patrocinio(Id_delpatrocinador, nombre_delpatrocinador,
-																		correo_delpatrocinador, contacto_delpatrocinador,
-																		tipo_depatrocinador, aporte_delpatrocinador));
-																JOptionPane.showMessageDialog(null, "Patrocinador registrado");
+																nombre_delpatrocinador = JOptionPane.showInputDialog("Nombre:");
+																correo_delpatrocinador = JOptionPane.showInputDialog("Correo:");
+																contacto_delpatrocinador = JOptionPane.showInputDialog("Contacto:");
+																tipo_depatrocinador = JOptionPane.showInputDialog("Tipo:");
+																aporte_delpatrocinador = JOptionPane.showInputDialog("Aporte:");
+																Persona nuevoPatrocinador = new patrocinio(Id_delpatrocinador, nombre_delpatrocinador,
+																		correo_delpatrocinador,
+																		contacto_delpatrocinador, tipo_depatrocinador, aporte_delpatrocinador);
+																patrocinioList.add(nuevoPatrocinador);
+																JOptionPane.showMessageDialog(null, "patrocinador hecho");
 															}
 															break;
-														case 3:
-															// actualizar patrocinador
-															Id_delpatrocinador = JOptionPane
-																	.showInputDialog("Ingrese el ID del patrocinador a actualizar");
-															boolean patrocinadoractualizado = false;
-															for (patrocinio update : patrocinioList) {
-																if (update.getPatrocinadorId().equals(Id_delpatrocinador)) {
-																	patrocinadoractualizado = true;
-																	nombre_delpatrocinador = JOptionPane.showInputDialog("Ingrese el nuevo nombre");
-																	contacto_delpatrocinador = JOptionPane.showInputDialog("Ingrese el nuevo contacto");
-																	tipo_depatrocinador = JOptionPane.showInputDialog("Ingrese el nuevo tipo");
-																	aporte_delpatrocinador = JOptionPane.showInputDialog("Ingrese el nuevo aporte");
-																	update.setPatrocinadorNombre(nombre_delpatrocinador);
-																	update.setContacto_patrocinador(contacto_delpatrocinador);
-																	update.setTipo_patrocinador(tipo_depatrocinador);
-																	update.setAporte_patrocinador(aporte_delpatrocinador);
-																	JOptionPane.showMessageDialog(null, "Patrocinador actualizado");
+														case 3: // Actualizar
+															Id_delpatrocinador = JOptionPane.showInputDialog("Ingrese el ID a actualizar:");
+															boolean actualizado = false;
+															for (Persona patroo : patrocinioList) {
+																if (patroo.getId().equals(Id_delpatrocinador)) {
+																	patrocinio pat = (patrocinio) patroo;
+																	actualizado = true;
+																	nombre_delpatrocinador = JOptionPane.showInputDialog("Nuevo nombre:");
+																	correo_delpatrocinador = JOptionPane.showInputDialog("Nuevo correo:");
+																	contacto_delpatrocinador = JOptionPane.showInputDialog("Nuevo contacto:");
+																	tipo_depatrocinador = JOptionPane.showInputDialog("Nuevo tipo:");
+																	aporte_delpatrocinador = JOptionPane.showInputDialog("Nuevo aporte:");
+																	pat.setNombre(nombre_delpatrocinador);
+																	pat.setCorreo(correo_delpatrocinador);
+																	pat.setContacto_patrocinador(contacto_delpatrocinador);
+																	pat.setTipo_patrocinador(tipo_depatrocinador);
+																	pat.setAporte_patrocinador(aporte_delpatrocinador);
+																	JOptionPane.showMessageDialog(null, "actualizado");
 																	break;
 																}
 															}
-															if (!patrocinadoractualizado) {
-																JOptionPane.showMessageDialog(null, "Este ID no existe");
+															if (!actualizado) {
+																JOptionPane.showMessageDialog(null, "id no encontrado");
 															}
 															break;
-														case 4:
-															// eliminar patrocinador
-															Id_delpatrocinador = JOptionPane
-																	.showInputDialog("Ingrese el ID del patrocinador a eliminar");
-															boolean patrocinadoreliminado = false;
+														case 4: // Eliminar
+															Id_delpatrocinador = JOptionPane.showInputDialog("Ingrese el id");
+															boolean eliminado = false;
 															for (int i = 0; i < patrocinioList.size(); i++) {
-																if (patrocinioList.get(i).getPatrocinadorId().equals(Id_delpatrocinador)) {
+																if (patrocinioList.get(i).getId().equals(Id_delpatrocinador)) {
 																	patrocinioList.remove(i);
-																	patrocinadoreliminado = true;
-																	JOptionPane.showMessageDialog(null, "Patrocinador eliminado");
+																	eliminado = true;
+																	JOptionPane.showMessageDialog(null, "eliminado");
 																	break;
 																}
 															}
-															if (!patrocinadoreliminado) {
-																JOptionPane.showMessageDialog(null, "ID no encontrado");
+															if (!eliminado) {
+																JOptionPane.showMessageDialog(null, "id no encontrado");
 															}
 															break;
-														case 5:
-															JOptionPane.showMessageDialog(null, "Devuelta al menu principal");
+														case 5: // Ver info
+															Id_delpatrocinador = JOptionPane.showInputDialog("Ingrese el ID a buscar:");
+															boolean encontradoo = false;
+															for (Persona nombrefor : patrocinioList) {
+																if (nombrefor.getId().equals(Id_delpatrocinador)) {
+																	encontradoo = true;
+																	nombrefor.mostrarinfo();
+																	JOptionPane.showMessageDialog(null, "Ver consola para la información completa");
+																	break;
+																}
+															}
+															if (!encontrado) {
+																JOptionPane.showMessageDialog(null, "id no encontrado");
+															}
+															break;
+														case 6: // Ver rol
+															Id_delpatrocinador = JOptionPane.showInputDialog("Ingrese el id:");
+															boolean rolEncontradopatro = false;
+															for (Persona fornombree : patrocinioList) {
+																if (fornombree.getId().equals(Id_delpatrocinador)) {
+																	rolEncontradopatro = true;
+																	JOptionPane.showMessageDialog(null, fornombree.rol());
+																	break;
+																}
+															}
+															if (!rolEncontradopatro) {
+																JOptionPane.showMessageDialog(null, "id no encontrado");
+															}
+															break;
+														case 7:
+															JOptionPane.showMessageDialog(null, "Saliendo");
 															break;
 														default:
-															JOptionPane.showMessageDialog(null, "ERROR, solo numeros del 1 al 5");
-															break;
+															JOptionPane.showMessageDialog(null, "No.solo números del 1 al 7");
 													}
-												} while (opcionpatrocinio != 5);
+												} while (opcionpatrocinio != 7);
 												break;
 											// -----------------------------------------------------------------------------------------------------------
 											case 5:

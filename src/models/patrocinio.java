@@ -1,5 +1,6 @@
 package models;
 
+//juan duarte
 public class patrocinio extends Persona {
 
     private String contacto_patrocinador;
@@ -8,7 +9,6 @@ public class patrocinio extends Persona {
 
     public patrocinio(String id, String nombre, String correo, String contacto_patrocinador, String tipo_patrocinador,
             String aporte_patrocinador) {
-
         super(id, nombre, correo);
         this.contacto_patrocinador = contacto_patrocinador;
         this.tipo_patrocinador = tipo_patrocinador;
@@ -21,10 +21,11 @@ public class patrocinio extends Persona {
 
     @Override
     public String rol() {
-        return "el rol es un patrocinador y es" + this.nombre;
+        return "el rol de este patrocinador es" + this.tipo_patrocinador;
     }
 
-    void mostrarinfo() {
+    @Override
+    public void mostrarinfo() {
         System.out.println("el ID: " + id);
         System.out.println("Nombre: " + nombre);
         System.out.println("Correo: " + correo);
@@ -56,30 +57,5 @@ public class patrocinio extends Persona {
     public void setAporte_patrocinador(String aporte_patrocinador) {
         this.aporte_patrocinador = aporte_patrocinador;
     }
-
-    // Getters y setters heredados
-
-    public String getPatrocinadorId() {
-        return id;
-    }
-
-    public void setPatrocinadorId(String id) {
-        this.id = id;
-    }
-
-    public String getPatrocinadorNombre() {
-        return nombre;
-    }
-
-    public void setPatrocinadorNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public String getPatrocinadorCorreo() {
-        return correo;
-    }
-
-    public void setPatrocinadorCorreo(String correo) {
-        this.correo = correo;
-    }
+    
 }
