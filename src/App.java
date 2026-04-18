@@ -59,6 +59,7 @@ public class App {
 		// patrocinio
 		String Id_delpatrocinador = " ";
 		String nombre_delpatrocinador;
+		String correo_delpatrocinador;
 		String contacto_delpatrocinador = " ";
 		String tipo_depatrocinador;
 		String aporte_delpatrocinador = " ";
@@ -491,7 +492,7 @@ public class App {
 																for (patrocinio mirarpatrocinadores : patrocinioList) {
 																	hojotaa += "------ \n"
 																			+ "ID: " + mirarpatrocinadores.getPatrocinadorId() + "\n"
-																			+ "nombre: " + mirarpatrocinadores.getNombre_patrocinador() + "\n"
+																			+ "nombre: " + mirarpatrocinadores.getPatrocinadorNombre() + "\n"
 																			+ "contacto: " + mirarpatrocinadores.getContacto_patrocinador() + "\n"
 																			+ "tipo: " + mirarpatrocinadores.getTipo_patrocinador() + "\n"
 																			+ "aporte: " + mirarpatrocinadores.getAporte_patrocinador() + "\n";
@@ -517,9 +518,12 @@ public class App {
 																contacto_delpatrocinador = JOptionPane.showInputDialog("Ingrese el contacto");
 																tipo_depatrocinador = JOptionPane.showInputDialog("Ingrese el tipo de patrocinador");
 																aporte_delpatrocinador = JOptionPane.showInputDialog("Ingrese el aporte");
-																patrocinioList.add(new patrocinio(Id_delpatrocinador, nombre_delpatrocinador, contacto_delpatrocinador,
+																correo_delpatrocinador = JOptionPane
+																		.showInputDialog("Ingrese el correo del patrocinador");
+																patrocinioList.add(new patrocinio(Id_delpatrocinador, nombre_delpatrocinador,
+																		correo_delpatrocinador, contacto_delpatrocinador,
 																		tipo_depatrocinador, aporte_delpatrocinador));
-																JOptionPane.showMessageDialog(null, "patrocinador registrado");
+																JOptionPane.showMessageDialog(null, "Patrocinador registrado");
 															}
 															break;
 														case 3:
@@ -528,13 +532,13 @@ public class App {
 																	.showInputDialog("Ingrese el ID del patrocinador a actualizar");
 															boolean patrocinadoractualizado = false;
 															for (patrocinio update : patrocinioList) {
-																if (update.getpatrocinadorId().equals(Id_delpatrocinador)) {
+																if (update.getPatrocinadorId().equals(Id_delpatrocinador)) {
 																	patrocinadoractualizado = true;
 																	nombre_delpatrocinador = JOptionPane.showInputDialog("Ingrese el nuevo nombre");
 																	contacto_delpatrocinador = JOptionPane.showInputDialog("Ingrese el nuevo contacto");
 																	tipo_depatrocinador = JOptionPane.showInputDialog("Ingrese el nuevo tipo");
 																	aporte_delpatrocinador = JOptionPane.showInputDialog("Ingrese el nuevo aporte");
-																	update.setNombre_patrocinador(nombre_delpatrocinador);
+																	update.setPatrocinadorNombre(nombre_delpatrocinador);
 																	update.setContacto_patrocinador(contacto_delpatrocinador);
 																	update.setTipo_patrocinador(tipo_depatrocinador);
 																	update.setAporte_patrocinador(aporte_delpatrocinador);
@@ -552,7 +556,7 @@ public class App {
 																	.showInputDialog("Ingrese el ID del patrocinador a eliminar");
 															boolean patrocinadoreliminado = false;
 															for (int i = 0; i < patrocinioList.size(); i++) {
-																if (patrocinioList.get(i).getpatrocinadorId().equals(Id_delpatrocinador)) {
+																if (patrocinioList.get(i).getPatrocinadorId().equals(Id_delpatrocinador)) {
 																	patrocinioList.remove(i);
 																	patrocinadoreliminado = true;
 																	JOptionPane.showMessageDialog(null, "Patrocinador eliminado");

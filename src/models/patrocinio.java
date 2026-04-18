@@ -57,4 +57,29 @@ public class patrocinio extends Persona {
         this.aporte_patrocinador = aporte_patrocinador;
     }
 
+    // Getters y setters heredados
+
+    public String getPatrocinadorId() {
+        return id;
+    }
+
+    public void setPatrocinadorId(String id) {
+        this.id = id;
+    }
+
+    public String getPatrocinadorNombre() {
+        return nombre;
+    }
+
+    public void setPatrocinadorNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getPatrocinadorCorreo() {
+        return correo;
+    }
+
+    public void setPatrocinadorCorreo(String correo) {
+        this.correo = correo;
+    }
 }
