@@ -24,7 +24,6 @@ public class App {
 		ArrayList<mantenimientoderecursos> mantenimientoList = new ArrayList<>();
 		ArrayList<registro> registroList = new ArrayList<>();
 
-
 		// CREACION DE VARIABLES PARA PROYECTOS
 		/*
 		 * creamos variables temporales para cada atributo de cada modelo.
@@ -489,7 +488,7 @@ public class App {
 																JOptionPane.showMessageDialog(null, "No hay patrocinadores registrados");
 															} else {
 																String hojotaa = "";
-																for (Patrocinio mirarpatrocinadores : patrocinioList) {
+																for (patrocinio mirarpatrocinadores : patrocinioList) {
 																	hojotaa += "------ \n"
 																			+ "ID: " + mirarpatrocinadores.getPatrocinadorId() + "\n"
 																			+ "nombre: " + mirarpatrocinadores.getNombre_patrocinador() + "\n"
@@ -504,7 +503,7 @@ public class App {
 															// meter patrocinador
 															Id_delpatrocinador = JOptionPane.showInputDialog("Ingrese el ID del patrocinador:");
 															boolean Idpatrocinadorexiste = false;
-															for (Patrocinio comprobar : patrocinioList) {
+															for (patrocinio comprobar : patrocinioList) {
 																if (comprobar.getPatrocinadorId().equals(Id_delpatrocinador)) {
 																	Idpatrocinadorexiste = true;
 																	break;
@@ -518,8 +517,8 @@ public class App {
 																contacto_delpatrocinador = JOptionPane.showInputDialog("Ingrese el contacto");
 																tipo_depatrocinador = JOptionPane.showInputDialog("Ingrese el tipo de patrocinador");
 																aporte_delpatrocinador = JOptionPane.showInputDialog("Ingrese el aporte");
-																patrocinioList.add(new Patrocinio(Id_delpatrocinador, nombre_delpatrocinador,
-																		contacto_delpatrocinador, tipo_depatrocinador, aporte_delpatrocinador));
+																patrocinioList.add(new patrocinio(Id_delpatrocinador, nombre_delpatrocinador, contacto_delpatrocinador,
+																		tipo_depatrocinador, aporte_delpatrocinador));
 																JOptionPane.showMessageDialog(null, "patrocinador registrado");
 															}
 															break;
@@ -528,8 +527,8 @@ public class App {
 															Id_delpatrocinador = JOptionPane
 																	.showInputDialog("Ingrese el ID del patrocinador a actualizar");
 															boolean patrocinadoractualizado = false;
-															for (Patrocinio update : patrocinioList) {
-																if (update.getPatrocinadorId().equals(Id_delpatrocinador)) {
+															for (patrocinio update : patrocinioList) {
+																if (update.getpatrocinadorId().equals(Id_delpatrocinador)) {
 																	patrocinadoractualizado = true;
 																	nombre_delpatrocinador = JOptionPane.showInputDialog("Ingrese el nuevo nombre");
 																	contacto_delpatrocinador = JOptionPane.showInputDialog("Ingrese el nuevo contacto");
@@ -553,7 +552,7 @@ public class App {
 																	.showInputDialog("Ingrese el ID del patrocinador a eliminar");
 															boolean patrocinadoreliminado = false;
 															for (int i = 0; i < patrocinioList.size(); i++) {
-																if (patrocinioList.get(i).getPatrocinadorId().equals(Id_delpatrocinador)) {
+																if (patrocinioList.get(i).getpatrocinadorId().equals(Id_delpatrocinador)) {
 																	patrocinioList.remove(i);
 																	patrocinadoreliminado = true;
 																	JOptionPane.showMessageDialog(null, "Patrocinador eliminado");
@@ -727,7 +726,8 @@ public class App {
 					contraseña_delregistro = JOptionPane.showInputDialog("Ingrese su contraseña:");
 					// los pasamos al constructor de la clase registro, y lo agregamos a su
 					// inventario, osea al ArrayList de registro
-					registroList.add(new registro(Id_delregistro, contraseña_delregistro, telefono_delregistro, correo_delregistro, nombre_delregistro));
+					registroList.add(new registro(Id_delregistro, contraseña_delregistro, telefono_delregistro,
+							correo_delregistro, nombre_delregistro));
 					JOptionPane.showMessageDialog(null, "registrado exitosamente");
 					break;
 				case 3:
