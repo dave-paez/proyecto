@@ -14,5 +14,5 @@ public abstract class Persona {
     this.correo = correo;
   }
 
-  public abstract String obtenerRolDelSistema();
+  public abstract String rol();
 }

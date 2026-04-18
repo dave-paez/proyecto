@@ -1,6 +1,6 @@
 package models;
 
-public class Participantes {
+public class participantes {
 
     private String ubicacion_participante;
     private String correo_participante;
