@@ -476,6 +476,7 @@ public class App {
 											case 4:
 												// MENU DE PATROCINIO
 												// JUAN DUARTE
+												//nuevo menu
 												do {
 													opcionpatrocinio = Integer.parseInt(JOptionPane.showInputDialog(
 															"PATROCINIO\n" +

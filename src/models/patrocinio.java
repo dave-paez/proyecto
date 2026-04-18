@@ -1,5 +1,6 @@
 package models;
 
+//juan duarte
 public class patrocinio extends Persona {
 
     private String contacto_patrocinador;
