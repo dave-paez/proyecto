@@ -1,11 +1,11 @@
 
 //Importamos los modelos
-import models.Mantenimientoderecursos;
-import models.Participantes;
-import models.Patrocinio;
-import models.Proyectos;
-import models.Recursos;
-import models.Resgistro;
+import models.mantenimientoderecursos;
+import models.participantes;
+import models.patrocinio;
+import models.proyectos;
+import models.recursos;
+import models.registro;
 
 // importamos el array
 import java.util.ArrayList;
@@ -17,12 +17,13 @@ public class App {
 		// Creamos un ArrayList para cada modelo
 		// esto es como un invenatario para cada modelo, donde guardaremos los objetos
 		// creados de cada clase
-		ArrayList<Proyectos> proyectosList = new ArrayList<>();
-		ArrayList<Participantes> participantesList = new ArrayList<>();
-		ArrayList<Recursos> recursosList = new ArrayList<>();
-		ArrayList<Patrocinio> patrocinioList = new ArrayList<>();
-		ArrayList<Mantenimientoderecursos> mantenimientoList = new ArrayList<>();
-		ArrayList<Resgistro> registroList = new ArrayList<>();
+		ArrayList<proyectos> proyectosList = new ArrayList<>();
+		ArrayList<participantes> participantesList = new ArrayList<>();
+		ArrayList<recursos> recursosList = new ArrayList<>();
+		ArrayList<patrocinio> patrocinioList = new ArrayList<>();
+		ArrayList<mantenimientoderecursos> mantenimientoList = new ArrayList<>();
+		ArrayList<registro> registroList = new ArrayList<>();
+
 
 		// CREACION DE VARIABLES PARA PROYECTOS
 		/*
@@ -726,9 +727,7 @@ public class App {
 					contraseña_delregistro = JOptionPane.showInputDialog("Ingrese su contraseña:");
 					// los pasamos al constructor de la clase registro, y lo agregamos a su
 					// inventario, osea al ArrayList de registro
-					registroList.add(new Verificacion(Id_delregistro, contraseña_delregistro,
-							nombre_delregistro,
-							telefono_delregistro, correo_delregistro));
+					registroList.add(new registro(Id_delregistro, contraseña_delregistro, telefono_delregistro, correo_delregistro, nombre_delregistro));
 					JOptionPane.showMessageDialog(null, "registrado exitosamente");
 					break;
 				case 3:
