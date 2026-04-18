@@ -1,6 +1,6 @@
 package models;
 
-public class Recursos {
+public class recursos {
 
     private String categoria_delrecurso;
     private String estado_delrecurso;

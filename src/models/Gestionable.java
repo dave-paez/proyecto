@@ -5,5 +5,5 @@ public interface Gestionable {
 
   void cambiarEstado(String nuevoEstado);
 
-  String obtenerDetalles();
+  String traerDetalles();
 }
