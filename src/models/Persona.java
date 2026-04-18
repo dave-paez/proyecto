@@ -15,4 +15,31 @@ public abstract class Persona {
   }
 
   public abstract String rol();
+
+  public abstract void mostrarinfo();
+
+  public String getId() {
+    return id;
+  }
+
+  public String getNombre() {
+    return nombre;
+  }
+
+  public String getCorreo() {
+    return correo;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public void setNombre(String nombre) {
+    this.nombre = nombre;
+  }
+
+  public void setCorreo(String correo) {
+    this.correo = correo;
+  }
+  
 }
