@@ -1,5 +1,5 @@
 
-# SOFTWARE INSTITCIONAL ACADEMICO
+# SOFTWARE INSTITUCIONAL ACADEMICO
 
 Este proyecto evoluciona de un **CRUD** convencional a un sistema robusto basado en **Programación Orientada a Objetos** Avanzada, optimizando la escalabilidad y el rendimiento mediante el uso de polimorfismo y herencia . La arquitectura ahora se fundamenta en una clase abstracta Persona y una clase RecursosBase, de las cuales heredan los modelos específicos como participantes, registro y recursos, permitiendo la reutilización de lógica común y una estructura de datos más limpia . Además, la implementación de la interfaz Gestionable estandariza el comportamiento de los módulos de proyectos, patrocinio y mantenimiento, garantizando que todos cumplan con un contrato de métodos definido. Al integrar estas técnicas, el software no solo gestiona información en ArrayList, sino que utiliza el polimorfismo para tratar diversos objetos de forma genérica, lo que eleva la **calidad** del código a un nivel profesional y facilita su mantenimiento futuro
 
