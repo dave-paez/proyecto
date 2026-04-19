@@ -1,6 +1,6 @@
 package models;
 
-// Clase hija de Persona //
+// Clase hija de Persona - Johan Gonzalez
 
 public class Participante extends Persona {
 
@@ -14,16 +14,17 @@ public class Participante extends Persona {
     }
 
     @Override
-    public String obtenerRolDelSistema() {
+    public String rol() {
         return "Rol: Participante - " + this.rolEspecifico;
     }
 
-    public void mostrarInfo() {
+    @Override
+    public void mostrarinfo() {
         System.out.println("PARTICIPANTE");
         System.out.println("ID:        " + this.id);
         System.out.println("Nombre:    " + this.nombre);
         System.out.println("Correo:    " + this.correo);
-        System.out.println("Ubicación: " + this.ubicacion);
+        System.out.println("Ubicacion: " + this.ubicacion);
         System.out.println("Rol:       " + this.rolEspecifico);
     }
 
