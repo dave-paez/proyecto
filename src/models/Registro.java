@@ -1,5 +1,5 @@
 package models;
-//j
+
 public class registro extends Persona {
 
     private String contraseña_personaladiministrativo;
