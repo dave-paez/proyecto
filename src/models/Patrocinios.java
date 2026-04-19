@@ -1,13 +1,13 @@
 package models;
 
 //juan duarte
-public class patrocinio extends Persona {
+public class Patrocinios extends Persona {
 
     private String contacto_patrocinador;
     private String tipo_patrocinador;
     private String aporte_patrocinador;
 
-    public patrocinio(String id, String nombre, String correo, String contacto_patrocinador, String tipo_patrocinador,
+    public Patrocinios(String id, String nombre, String correo, String contacto_patrocinador, String tipo_patrocinador,
             String aporte_patrocinador) {
         super(id, nombre, correo);
         this.contacto_patrocinador = contacto_patrocinador;
@@ -15,7 +15,7 @@ public class patrocinio extends Persona {
         this.aporte_patrocinador = aporte_patrocinador;
     }
 
-    public patrocinio() {
+    public Patrocinios() {
         super("", "", "");
     }
 
