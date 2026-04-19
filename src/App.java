@@ -1,12 +1,12 @@
 
 //Importamos los modelos
 import models.Persona;
-import models.mantenimientoderecursos;
-import models.participantes;
-import models.patrocinio;
-import models.proyectos;
-import models.recursos;
-import models.registro;
+import models.Mantenimientoderecursos;
+import models.Participantes;
+import models.Patrocinios;
+import models.Proyectos;
+import models.Recursos;
+import models.Verificacion;
 
 // importamos el array
 import java.util.ArrayList;
@@ -18,12 +18,12 @@ public class App {
 		// Creamos un ArrayList para cada modelo
 		// esto es como un invenatario para cada modelo, donde guardaremos los objetos
 		// creados de cada clase
-		ArrayList<proyectos> proyectosList = new ArrayList<>();
-		ArrayList<participantes> participantesList = new ArrayList<>();
-		ArrayList<recursos> recursosList = new ArrayList<>();
+		ArrayList<Proyectos> proyectosList = new ArrayList<>();
+		ArrayList<Participantes> participantesList = new ArrayList<>();
+		ArrayList<Recursos> recursosList = new ArrayList<>();
 		ArrayList<Persona> patrocinioList = new ArrayList<>();
-		ArrayList<mantenimientoderecursos> mantenimientoList = new ArrayList<>();
-		ArrayList<registro> registroList = new ArrayList<>();
+		ArrayList<Mantenimientoderecursos> mantenimientoList = new ArrayList<>();
+		ArrayList<Verificacion> registroList = new ArrayList<>();
 
 		// CREACION DE VARIABLES PARA PROYECTOS
 		/*
@@ -494,7 +494,7 @@ public class App {
 															} else {
 																String listaPatrocinadores = "";
 																for (Persona nombredelista : patrocinioList) {
-																	patrocinio pat = (patrocinio) nombredelista;
+																	Patrocinios pat = (Patrocinios) nombredelista;
 																	listaPatrocinadores += "ID: " + pat.getId() +
 																			" nombre: " + pat.getNombre() +
 																			" tipo: " + pat.getTipo_patrocinador() +
@@ -521,7 +521,7 @@ public class App {
 																contacto_delpatrocinador = JOptionPane.showInputDialog("Contacto:");
 																tipo_depatrocinador = JOptionPane.showInputDialog("Tipo:");
 																aporte_delpatrocinador = JOptionPane.showInputDialog("Aporte:");
-																Persona nuevoPatrocinador = new patrocinio(Id_delpatrocinador, nombre_delpatrocinador,
+																Persona nuevoPatrocinador = new Patrocinios(Id_delpatrocinador, nombre_delpatrocinador,
 																		correo_delpatrocinador,
 																		contacto_delpatrocinador, tipo_depatrocinador, aporte_delpatrocinador);
 																patrocinioList.add(nuevoPatrocinador);
@@ -533,7 +533,7 @@ public class App {
 															boolean actualizado = false;
 															for (Persona patroo : patrocinioList) {
 																if (patroo.getId().equals(Id_delpatrocinador)) {
-																	patrocinio pat = (patrocinio) patroo;
+																	Patrocinios pat = (Patrocinios) patroo;
 																	actualizado = true;
 																	nombre_delpatrocinador = JOptionPane.showInputDialog("Nuevo nombre:");
 																	correo_delpatrocinador = JOptionPane.showInputDialog("Nuevo correo:");
@@ -759,7 +759,7 @@ public class App {
 					contraseña_delregistro = JOptionPane.showInputDialog("Ingrese su contraseña:");
 					// los pasamos al constructor de la clase registro, y lo agregamos a su
 					// inventario, osea al ArrayList de registro
-					registroList.add(new registro(Id_delregistro, contraseña_delregistro, telefono_delregistro,
+					registroList.add(new Verificacion(Id_delregistro, contraseña_delregistro, telefono_delregistro,
 							correo_delregistro, nombre_delregistro));
 					JOptionPane.showMessageDialog(null, "registrado exitosamente");
 					break;
