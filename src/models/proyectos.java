@@ -43,6 +43,11 @@ public class proyectos extends Persona implements Gestionable {
                 "Estado del Proyecto: " + estado_proyecto;
     }
 
+    @Override
+    public void mostrarinfo() {
+        System.out.println(traerDetalles());
+    }
+
     public String getTipo_proyecto() {
         return tipo_proyecto;
     }
