@@ -258,7 +258,7 @@ public class App {
 													switch (opcionParticipantes) {
 														case 1:
 															Id_delosparticipantes = JOptionPane.showInputDialog("Ingrese el ID del participante:");
-															boolean existeparticipante = false; // apagado
+															boolean existeparticipante = false;
 															for (Participantes comprobarIDparticipante : participantesList) {
 																if (comprobarIDparticipante.getParticipanteId().equals(Id_delosparticipantes)) {
 																	existeparticipante = true;
@@ -401,7 +401,7 @@ public class App {
 															break;
 														case 2:
 															Id_delrecurso = JOptionPane.showInputDialog("Ingrese el ID del recurso:");
-															boolean IDyaexiste = false; // apagado
+															boolean IDyaexiste = false;
 															for (Recursos comprobarIDrecurso : recursosList) {
 																if (comprobarIDrecurso.getRecursoId().equals(Id_delrecurso)) {
 																	IDyaexiste = true;
@@ -423,7 +423,7 @@ public class App {
 														case 3:
 															Id_delrecurso = JOptionPane
 																	.showInputDialog("Ingrese el ID del recurso que desea actualizar:");
-															boolean IDencontrado = false; // apagado
+															boolean IDencontrado = false;
 															for (Recursos actualizar : recursosList) {
 																if (actualizar.getRecursoId().equals(Id_delrecurso)) {
 																	IDencontrado = true;
@@ -476,7 +476,7 @@ public class App {
 											case 4:
 												// MENU DE PATROCINIO
 												// JUAN DUARTE
-												//nuevo menu
+				
 												do {
 													opcionpatrocinio = Integer.parseInt(JOptionPane.showInputDialog(
 															"PATROCINIO\n" +
@@ -579,7 +579,7 @@ public class App {
 																	break;
 																}
 															}
-															if (!encontrado) {
+															if (!encontradoo) {
 																JOptionPane.showMessageDialog(null, "id no encontrado");
 															}
 															break;

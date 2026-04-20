@@ -15,10 +15,6 @@ public class Patrocinios extends Persona {
         this.aporte_patrocinador = aporte_patrocinador;
     }
 
-    public Patrocinios() {
-        super("", "", "");
-    }
-
     @Override
     public String rol() {
         return "el rol de este patrocinador es" + this.tipo_patrocinador;

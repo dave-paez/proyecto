@@ -18,16 +18,30 @@ public class Verificacion extends Persona {
 
     @Override
     public void mostrarinfo() {
-        System.out.println("ID:       " + id);
-        System.out.println("Nombre:   " + nombre);
-        System.out.println("Correo:   " + correo);
+        System.out.println("ID: " + id);
+        System.out.println("Nombre: " + nombre);
+        System.out.println("Correo: " + correo);
         System.out.println("Telefono: " + telefono_personaladministrativo);
     }
 
-    public String getPersonaladiministrativoId()           { return id; }
-    public String getContraseña_personaladiministrativo()  { return contraseña_personaladiministrativo; }
-    public String getTelefono_personaladministrativo()     { return telefono_personaladministrativo; }
+    public String getPersonaladiministrativoId() {
+        return id;
+    }
 
-    public void setContraseña_personaladiministrativo(String contraseña) { this.contraseña_personaladiministrativo = contraseña; }
-    public void setTelefono_personaladministrativo(String telefono)      { this.telefono_personaladministrativo = telefono; }
+    public String getContraseña_personaladiministrativo() {
+        return contraseña_personaladiministrativo;
+    }
+
+    public String getTelefono_personaladministrativo() {
+        return telefono_personaladministrativo;
+    }
+
+    public void setContraseña_personaladiministrativo(String contraseña) {
+        this.contraseña_personaladiministrativo = contraseña;
+    }
+
+    public void setTelefono_personaladministrativo(String telefono) {
+        this.telefono_personaladministrativo = telefono;
+    }
+
 }
