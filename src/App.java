@@ -1,11 +1,11 @@
 //Importamos los modelos
 import models.Persona;
-import models.Mantenimientorecursos;
-import models.Participantes;
-import models.Patrocinios;
-import models.Proyectos;
-import models.Recursos;
-import models.Verificacion;
+import models.mantenimientoderecursos;
+import models.participantes;
+import models.patrocinio;
+import models.proyectos;
+import models.recursos;
+import models.registro;
 
 // importamos el array
 import java.util.ArrayList;
@@ -21,8 +21,8 @@ public class App {
 		ArrayList<Participantes> participantesList = new ArrayList<>();
 		ArrayList<Recursos> recursosList = new ArrayList<>();
 		ArrayList<Persona> patrocinioList = new ArrayList<>();
-		ArrayList<Mantenimientorecursos> mantenimientoList = new ArrayList<>();
-		ArrayList<Verificacion> registroList = new ArrayList<>();
+		ArrayList<mantenimientoderecursos> mantenimientoList = new ArrayList<>();
+		ArrayList<registro> registroList = new ArrayList<>();
 
 		// CREACION DE VARIABLES PARA PROYECTOS
 		/*
@@ -257,7 +257,7 @@ public class App {
 													switch (opcionParticipantes) {
 														case 1:
 															Id_delosparticipantes = JOptionPane.showInputDialog("Ingrese el ID del participante:");
-															boolean existeparticipante = false; // apagado
+															boolean existeparticipante = false;
 															for (Participantes comprobarIDparticipante : participantesList) {
 																if (comprobarIDparticipante.getParticipanteId().equals(Id_delosparticipantes)) {
 																	existeparticipante = true;
@@ -400,7 +400,7 @@ public class App {
 															break;
 														case 2:
 															Id_delrecurso = JOptionPane.showInputDialog("Ingrese el ID del recurso:");
-															boolean IDyaexiste = false; // apagado
+															boolean IDyaexiste = false;
 															for (Recursos comprobarIDrecurso : recursosList) {
 																if (comprobarIDrecurso.getRecursoId().equals(Id_delrecurso)) {
 																	IDyaexiste = true;
@@ -422,7 +422,7 @@ public class App {
 														case 3:
 															Id_delrecurso = JOptionPane
 																	.showInputDialog("Ingrese el ID del recurso que desea actualizar:");
-															boolean IDencontrado = false; // apagado
+															boolean IDencontrado = false;
 															for (Recursos actualizar : recursosList) {
 																if (actualizar.getRecursoId().equals(Id_delrecurso)) {
 																	IDencontrado = true;
@@ -475,7 +475,7 @@ public class App {
 											case 4:
 												// MENU DE PATROCINIO
 												// JUAN DUARTE
-												//nuevo menu
+				
 												do {
 													opcionpatrocinio = Integer.parseInt(JOptionPane.showInputDialog(
 															"PATROCINIO\n" +
@@ -578,7 +578,7 @@ public class App {
 																	break;
 																}
 															}
-															if (!encontrado) {
+															if (!encontradoo) {
 																JOptionPane.showMessageDialog(null, "id no encontrado");
 															}
 															break;
