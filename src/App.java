@@ -1,11 +1,12 @@
 //Importamos los modelos
 import models.Persona;
-import models.mantenimientoderecursos;
-import models.participantes;
-import models.patrocinio;
-import models.proyectos;
-import models.recursos;
-import models.registro;
+import models.Mantenimientoderecursos;
+import models.Participantes;
+import models.Patrocinios;
+import models.Recursos;
+import models.Verificacion;
+import models.Proyectos;
+
 
 // importamos el array
 import java.util.ArrayList;
@@ -17,12 +18,12 @@ public class App {
 		// Creamos un ArrayList para cada modelo
 		// esto es como un invenatario para cada modelo, donde guardaremos los objetos
 		// creados de cada clase
-		ArrayList<Proyectos> proyectosList = new ArrayList<>();
 		ArrayList<Participantes> participantesList = new ArrayList<>();
+		ArrayList<Proyectos> proyectosList = new ArrayList<>();
 		ArrayList<Recursos> recursosList = new ArrayList<>();
-		ArrayList<Persona> patrocinioList = new ArrayList<>();
-		ArrayList<mantenimientoderecursos> mantenimientoList = new ArrayList<>();
-		ArrayList<registro> registroList = new ArrayList<>();
+		ArrayList<Patrocinios> patrocinioList = new ArrayList<>();
+		ArrayList<Mantenimientoderecursos> mantenimientoList = new ArrayList<>();
+		ArrayList<Verificacion> registroList = new ArrayList<>();
 
 		// CREACION DE VARIABLES PARA PROYECTOS
 		/*
@@ -622,7 +623,7 @@ public class App {
 																JOptionPane.showMessageDialog(null, "no hay objetos en mantenimiento registrados");
 															} else {
 																String hojita = "";
-																for (Mantenimientorecursos mostrar : mantenimientoList) {
+																for (Mantenimientoderecursos mostrar : mantenimientoList) {
 																	hojita += "------ \n"
 																			+ "ID: " + mostrar.getManteni_recursoId() + "\n"
 																			+ "nombre: " + mostrar.getNombre_mantenimientorecursos() + "\n"
@@ -638,7 +639,7 @@ public class App {
 															Id_mantenimientoderecursos = JOptionPane
 																	.showInputDialog("Ingrese el ID del mantenimiento:");
 															boolean Idmanteniexiste = false;
-															for (Mantenimientorecursos comprobar : mantenimientoList) {
+															for (Mantenimientoderecursos comprobar : mantenimientoList) {
 																if (comprobar.getManteni_recursoId().equals(Id_mantenimientoderecursos)) {
 																	Idmanteniexiste = true;
 																	break;
@@ -655,7 +656,7 @@ public class App {
 																ubicacion_mantenimientoderecursos = JOptionPane.showInputDialog("Ingrese la categoria");
 																fechadeingreso_mantenimientoderecursos = JOptionPane
 																		.showInputDialog("Ingrese la fecha de ingreso");
-																mantenimientoList.add(new Mantenimientorecursos(Id_mantenimientoderecursos,
+																mantenimientoList.add(new Mantenimientoderecursos(Id_mantenimientoderecursos,
 																		nombre_mantenimientoderecursos, categoria_mantenimientoderecursos,
 																		estado_mantenimientoderecursos, ubicacion_mantenimientoderecursos,
 																		fechadeingreso_mantenimientoderecursos));
@@ -667,7 +668,7 @@ public class App {
 															Id_mantenimientoderecursos = JOptionPane
 																	.showInputDialog("Ingrese el ID del objeto a actualizar");
 															boolean manteniactualizado = false;
-															for (Mantenimientorecursos cambiar : mantenimientoList) {
+															for (Mantenimientoderecursos cambiar : mantenimientoList) {
 																if (cambiar.getManteni_recursoId().equals(Id_mantenimientoderecursos)) {
 																	manteniactualizado = true;
 
