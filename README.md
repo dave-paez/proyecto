@@ -296,7 +296,7 @@ Menu Principal → 1. Iniciar sesión (o 2. Registrarse)
 Menu Principal → [1-5] Según el módulo que necesites
 ```
 <div align="center">
-  <img src="https://i.imgur.com/B18kwZK.png" width="700">
+  <img src="https://i.imgur.com/B18kwZK.png" width="600">
 </div>
  
 ### 3️ Operaciones CRUD
@@ -309,7 +309,7 @@ Cada módulo permite:
 - Operaciones específicas del módulo
 ```
 <div align="center">
-  <img src="https://i.imgur.com/LOFkqww.png" width="700">
+  <img src="https://i.imgur.com/LOFkqww.png" width="600">
 </div>
  
 ##  Diagrama de Flujo
@@ -377,6 +377,6 @@ Este proyecto demuestra que el verdadero poder de la POO está en **escribir có
 ---
  
 <div align="center">
-  Gracias por usar nuestro software!
+  Gracias por usar nuestro crud de software!
 </div>
  
