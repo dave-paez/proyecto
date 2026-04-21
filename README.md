@@ -279,28 +279,6 @@ System.out.println(pat.getAporte_patrocinador()); // Acceso específico
  
 ---
  
-##  Herramientas Utilizadas
- 
-<div align="center">
-  
-![Java](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)
-![Git](https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white)
-![VS Code](https://img.shields.io/badge/VS%20Code-007ACC?style=for-the-badge&logo=visual-studio-code&logoColor=white)
- 
-**Interface:** JOptionPane (Interfaz gráfica de escritorio)
- 
-</div>
- 
-##  Equipo de Desarrollo
- 
-| Nombre | GitHub | Email |
-|--------|--------|-------|
-| **DAVE PAEZ** | [@dave-paez](https://github.com/dave-paez) | davepaezm@gmail.com |
-| **JUAN DUARTE** | [@cuartoa2016juanjose-bit](https://github.com/cuartoa2016juanjose-bit) | juanjduarteu@gmail.com |
-| **JOHAN WEST** | [@wjohan39-jpg](https://github.com/wjohan39-jpg) | wjohan39@gmail.com |
-| **SAMUEL GONZALE** | [@samuelitogonzabusta3233-tech](https://github.com/samuelitogonzabusta3233-tech) | samuelitogonzabusta3233@gmail.com |
- 
----
  
 ## 📖 Cómo Usar el Sistema
  
@@ -372,6 +350,29 @@ Cada módulo permite:
  
 > "El polimorfismo es la capacidad de un objeto para asumir muchas formas. En Java, esto se logra mediante la herencia y las interfaces."
 Este proyecto demuestra que el verdadero poder de la POO está en **escribir código una sola vez y usarlo en múltiples contextos**, ahorrando tiempo, reduciendo errores y haciendo el código más profesional.
+ 
+---
+
+##  Herramientas Utilizadas
+ 
+<div align="center">
+  
+![Java](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)
+![Git](https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white)
+![VS Code](https://img.shields.io/badge/VS%20Code-007ACC?style=for-the-badge&logo=visual-studio-code&logoColor=white)
+ 
+**Interface:** JOptionPane (Interfaz gráfica de escritorio)
+ 
+</div>
+
+##  Equipo de Desarrollo
+ 
+| Nombre | GitHub | Email |
+|--------|--------|-------|
+| **DAVE PAEZ** | [@dave-paez](https://github.com/dave-paez) | davepaezm@gmail.com |
+| **JUAN DUARTE** | [@cuartoa2016juanjose-bit](https://github.com/cuartoa2016juanjose-bit) | juanjduarteu@gmail.com |
+| **JOHAN WEST** | [@wjohan39-jpg](https://github.com/wjohan39-jpg) | wjohan39@gmail.com |
+| **SAMUEL GONZALE** | [@samuelitogonzabusta3233-tech](https://github.com/samuelitogonzabusta3233-tech) | samuelitogonzabusta3233@gmail.com |
  
 ---
  
