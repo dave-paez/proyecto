@@ -570,16 +570,16 @@ public class App {
 															break;
 														case 5: // Ver info
 															Id_delpatrocinador = JOptionPane.showInputDialog("Ingrese el ID a buscar:");
-															boolean encontradoo = false;
+															boolean patrocinaencontrado = false;
 															for (Persona nombrefor : patrocinioList) {
 																if (nombrefor.getId().equals(Id_delpatrocinador)) {
-																	encontradoo = true;
+																	patrocinaencontrado = true;
 																	nombrefor.mostrarinfo();
 																	JOptionPane.showMessageDialog(null, "Ver consola para la información completa");
 																	break;
 																}
 															}
-															if (!encontrado) {
+															if (!patrocinaencontrado) {
 																JOptionPane.showMessageDialog(null, "id no encontrado");
 															}
 															break;
