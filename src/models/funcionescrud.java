@@ -1,6 +1,6 @@
 package models;
 
-public interface Ioperaciones {
+public interface funcionescrud {
 
     void guardar(RecursoBase recurso);
  
