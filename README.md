@@ -290,7 +290,6 @@ System.out.println(pat.getAporte_patrocinador()); // Acceso específico
 **Interface:** JOptionPane (Interfaz gráfica de escritorio)
  
 </div>
----
  
 ##  Equipo de Desarrollo
  
