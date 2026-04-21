@@ -21,7 +21,7 @@ public class App {
 		ArrayList<Participantes> participantesList = new ArrayList<>();
 		ArrayList<Proyectos> proyectosList = new ArrayList<>();
 		ArrayList<Recursos> recursosList = new ArrayList<>();
-		ArrayList<Persona> patrocinioList = new ArrayList<>();
+		ArrayList<Patrocinios> patrocinioList = new ArrayList<>();
 		ArrayList<Mantenimientoderecursos> mantenimientoList = new ArrayList<>();
 		ArrayList<Verificacion> registroList = new ArrayList<>();
 
@@ -494,8 +494,7 @@ public class App {
 																JOptionPane.showMessageDialog(null, "No hay patrocinadores registrados");
 															} else {
 																String listaPatrocinadores = "";
-																for (Persona nombredelista : patrocinioList) {
-																	Patrocinios pat = (Patrocinios) nombredelista;
+																for (Patrocinios pat : patrocinioList) {
 																	listaPatrocinadores += "ID: " + pat.getId() +
 																			" nombre: " + pat.getNombre() +
 																			" tipo: " + pat.getTipo_patrocinador() +
@@ -508,8 +507,8 @@ public class App {
 														case 2:// crear patro
 															Id_delpatrocinador = JOptionPane.showInputDialog("Ingrese el id");
 															boolean idExiste = false;
-															for (Persona patro : patrocinioList) {
-																if (patro.getId().equals(Id_delpatrocinador)) {
+															for (Patrocinios pat : patrocinioList) {
+																if (pat.getId().equals(Id_delpatrocinador)) {
 																	idExiste = true;
 																	break;
 																}
@@ -522,19 +521,18 @@ public class App {
 																contacto_delpatrocinador = JOptionPane.showInputDialog("Contacto:");
 																tipo_depatrocinador = JOptionPane.showInputDialog("Tipo:");
 																aporte_delpatrocinador = JOptionPane.showInputDialog("Aporte:");
-																Persona nuevoPatrocinador = new Patrocinios(Id_delpatrocinador, nombre_delpatrocinador,
+																Patrocinios nuevoPatrocinador = new Patrocinios(Id_delpatrocinador, nombre_delpatrocinador,
 																		correo_delpatrocinador,
 																		contacto_delpatrocinador, tipo_depatrocinador, aporte_delpatrocinador);
-																patrocinioList.add((Patrocinios)nuevoPatrocinador);
+																patrocinioList.add(nuevoPatrocinador);
 																JOptionPane.showMessageDialog(null, "patrocinador hecho");
 															}
 															break;
 														case 3: // Actualizar
 															Id_delpatrocinador = JOptionPane.showInputDialog("Ingrese el ID a actualizar:");
 															boolean actualizado = false;
-															for (Persona patroo : patrocinioList) {
-																if (patroo.getId().equals(Id_delpatrocinador)) {
-																	Patrocinios pat = (Patrocinios) patroo;
+															for (Patrocinios pat : patrocinioList) {
+																if (pat.getId().equals(Id_delpatrocinador)) {
 																	actualizado = true;
 																	nombre_delpatrocinador = JOptionPane.showInputDialog("Nuevo nombre:");
 																	correo_delpatrocinador = JOptionPane.showInputDialog("Nuevo correo:");
