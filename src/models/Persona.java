@@ -1,7 +1,7 @@
 package models;
 
 //primera clase padre - creado por dave paez.
-//modificado por juan duarte.
+//modificado por juan duarte..
 
 public abstract class Persona {
   protected String id;
