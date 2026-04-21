@@ -13,12 +13,12 @@ public class Mantenimientoderecursos extends RecursoBase {
     @Override
     public String traerDetalles() {
         return "MANTENIMIENTO\n"
-                + "ID:           " + id + "\n"
-                + "Nombre:       " + nombre + "\n"
-                + "Descripcion:  " + categoria + "\n"
-                + "Estado:       " + estado + "\n"
-                + "Categoria:    " + ubicacion + "\n"
-                + "Fecha ingreso:" + fechadeingreso_mantenimientorecursos;
+                + "ID: " + id + "\n"
+                + "Nombre: " + nombre + "\n"
+                + "Descripcion: " + categoria + "\n"
+                + "Estado: " + estado + "\n"
+                + "Categoria: " + ubicacion + "\n"
+                + "Fecha ingreso: " + fechadeingreso_mantenimientorecursos;
     }
 
     public String getManteni_recursoId() {

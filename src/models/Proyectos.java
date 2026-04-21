@@ -30,13 +30,13 @@ public class Proyectos extends Persona implements Gestionable {
 
     @Override
     public String traerDetalles() {
-        return "ID:           " + id + "\n"
-                + "Nombre:       " + nombre + "\n"
-                + "Tipo:         " + tipo + "\n"
-                + "Descripcion:  " + descripcion + "\n"
+        return "ID: " + id + "\n"
+                + "Nombre:  " + nombre + "\n"
+                + "Tipo:  " + tipo + "\n"
+                + "Descripcion: " + descripcion + "\n"
                 + "Fecha inicio: " + fechaInicio + "\n"
-                + "Fecha fin:    " + fechaFin + "\n"
-                + "Estado:       " + estado;
+                + "Fecha fin: " + fechaFin + "\n"
+                + "Estado: " + estado;
     }
 
     @Override
