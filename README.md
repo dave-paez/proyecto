@@ -1,85 +1,382 @@
-
-# SOFTWARE INSTITUCIONAL ACADEMICO
-
-Este proyecto evoluciona de un **CRUD** convencional a un sistema robusto basado en **Programación Orientada a Objetos** Avanzada, optimizando la escalabilidad y el rendimiento mediante el uso de polimorfismo y herencia . La arquitectura ahora se fundamenta en una clase abstracta Persona y una clase RecursosBase, de las cuales heredan los modelos específicos como participantes, registro y recursos, permitiendo la reutilización de lógica común y una estructura de datos más limpia . Además, la implementación de la interfaz Gestionable estandariza el comportamiento de los módulos de proyectos, patrocinio y mantenimiento, garantizando que todos cumplan con un contrato de métodos definido. Al integrar estas técnicas, el software no solo gestiona información en ArrayList, sino que utiliza el polimorfismo para tratar diversos objetos de forma genérica, lo que eleva la **calidad** del código a un nivel profesional y facilita su mantenimiento futuro
-
-
-## Uso / Ejemplos
-
-```Java
-package models;
-
-//Primer interface - creado por juan duarte
-public interface Gestionable {
-
-  void cambiarEstado(String nuevoEstado);
-
-  String traerDetalles();
-}
-```
-````Java
-package models;
-
-//Segunda clase abstracta - creado por juan duarte
-public abstract class RecursoBase implements Gestionable {
+# SOFTWARE INSTITUCIONAL ACADÉMICO
  
+> Un sistema de gestión académica construido con **Programación Orientada a Objetos Avanzada**, implementando patrones de diseño profesionales mediante **polimorfismo**, **herencia** e **interfaces**.
+ 
+---
+ 
+## Descripción del Proyecto
+ 
+Este software evoluciona de un CRUD básico a una arquitectura empresarial que implementa principios sólidos de POO. Permite la gestión integral de:
+ 
+-  **Participantes** - Registro y seguimiento de usuarios
+-  **Proyectos** - Planificación y control de proyectos académicos
+-  **Patrocinios** - Administración de patrocinadores y aportes
+-  **Recursos** - Inventario y gestión de recursos
+-  **Mantenimiento** - Control de mantenimiento de recursos
+-  **Registro/Verificación** - Autenticación de usuarios
+---
+ 
+##  Arquitectura de POO
+ 
+###  Clase Abstracta Base: **Persona**
+ 
+La piedra angular del sistema. Todas las entidades de usuario heredan de esta clase:
+ 
+```java
+public abstract class Persona {
+  protected String id;
+  protected String nombre;
+  protected String correo;
+
+  public Persona(String id, String nombre, String correo) {
+    this.id = id;
+    this.nombre = nombre;
+    this.correo = correo;
+  }
+  public abstract String rol();
+
+  public abstract void mostrarinfo();
+}
+
+```
+ 
+**Clases que heredan de Persona:**
+- `Participante` - Usuarios que participan en eventos/proyectos
+- `Patrocinio` - Entidades patrocinadoras
+- `Registro/Verificacion` - Personal administrativo
+- `proyectos` - Tipo de proyecto
+---
+ 
+### Clase Abstracta: **RecursoBase** (Implementa Gestionable)
+ 
+Gestiona todo lo relacionado con recursos:
+ 
+```java
+public abstract class RecursoBase implements Gestionable {
+  protected String id;
+  protected String nombre;
+  protected String categoria;
+  protected String estado;
+  protected String ubicacion;
+  public RecursoBase(String id, String nombre, String categoria, String estado, String ubicacion) {
+    this.id = id;
+    this.nombre = nombre;
+    this.categoria = categoria;
+    this.estado = estado;
+    this.ubicacion = ubicacion;
+  }
   @Override
   public void cambiarEstado(String nuevoEstado) {
     this.estado = nuevoEstado;
   }
-
   @Override
   public String traerDetalles() {
     return "ID: " + id + ", Nombre: " + nombre + ", Categoria: " + categoria + ", Estado: " + estado + ", Ubicacion: "
         + ubicacion;
   }
 }
-````
-<br>
-
-## Sustento
-<div Style align = "center">
-  
-![App Screenshot](https://dummyimage.com/1200x600?text=App+Screenshot+Here)</div>
-
-
-## Caracteristicas
-
-- **Abstracción y Herencia Estructural:** El sistema utiliza una clase abstracta Persona como base para modelos como patrocinio, permitiendo que objetos específicos hereden atributos y comportamientos comunes, lo que garantiza una estructura de datos estandarizada.
-- **Implementación de Polimorfismo:** Se aplican técnicas de polimorfismo donde una lista de tipo Persona puede almacenar y gestionar objetos de sus clases hijas (como patrocinio), permitiendo el tratamiento genérico de datos.
-- **Contratos de Comportamiento con Interfases:** Mediante la interfaz Gestionable, se asegura que cada módulo implemente métodos obligatorios para la manipulación de información, promoviendo un código más limpio y profesional.
-- Especialización de Métodos: El módulo incluye métodos polimórficos especializados como mostrarinfo() y rol(), los cuales permiten ejecutar comportamientos específicos de la clase hija a pesar de estar referenciados como una clase padre.
-- Gestión Dinámica mediante Casting: Para acceder a atributos específicos de las clases derivadas (como getTipo_patrocinador), el sistema realiza un casting de objetos ((patrocinio) nombredelista), demostrando un manejo avanzado de tipos en Java.
-
-
- ## Herramientas Utilizadas
- Lenguaje /Despliegue / IDEs - Editor 
+```
  
-![Java](https://img.shields.io/badge/java-%23ED8B00.svg?style=for-the-badge&logo=openjdk&logoColor=white)
-<img src="https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white">
-![Visual Studio Code](https://img.shields.io/badge/Visual%20Studio%20Code-0078d7.svg?style=for-the-badge&logo=visual-studio-code&logoColor=white)
+**Clases que heredan de RecursoBase:**
+- `Recursos` - Activos del sistema
+- `MantenimientoDeRecursos` - Registro de mantenimientos
+---
+ 
+###  Interfaz: **Gestionable**
+ 
+Define el contrato que deben cumplir todos los objetos gestionables:
+ 
+```java
+public interface Gestionable {
+    void cambiarEstado(String nuevoEstado);
+    String traerDetalles();
+}
+```
+ 
+**Implementadores:**
+- RecursoBase y sus hijas
+- Proyectos (directamente)
+- Patrocinio (indirectamente vía Persona)
+---
+ 
+##  Polimorfismo en Acción
+ 
+### Ejemplo 1: Almacenamiento Genérico
+ 
+```java
+// Usamos un ÚNICO ArrayList de tipo Persona:
+ArrayList<Persona> patrocinioList = new ArrayList<>();
+// guardar objetos de cualquier clase hija:
+patrocinioList.add(new Patrocinio("001", "Empresa XYZ", "xyz@mail.com", "555-1234", "Empresarial", "50000"));
+patrocinioList.add(new Patrocinio("002", "Empresa ABC", "abc@mail.com", "555-5678", "Individual", "10000"));
+```
+ 
+### Ejemplo 2: Llamadas Polimórficas
+ 
+```java
+// Iterar SIN saber qué tipo específico es cada objeto:
+for (Persona p : patrocinioList) {
+    // Estos métodos se ejecutan según la clase hija real:
+    System.out.println(p.rol());
+    p.mostrarinfo();
+}
+```
+ 
+### Ejemplo 3: Casting Dinámico
+ 
+```java
+for (Persona p : patrocinioList) {
+    if (p.getId().equals(idBuscado)) {
+        Patrocinio pat = (Patrocinio) p;  // Cast seguro
+        //accedemos a métodos específicos de Patrocinio:
+        pat.getTipo_patrocinador();
+        pat.getAporte_patrocinador();
+    }
+}
+```
+ 
+---
+ 
+##  Menús Mejorados con Polimorfismo
+ 
+### Menú de Patrocinio
+ 
+```java
+ArrayList<Persona> patrocinioList = new ArrayList<>();
+ 
+//Ver todos
+for (Persona p : patrocinioList) {
+    Patrocinio pat = (Patrocinio) p;
+    System.out.println("ID: " + pat.getId() + 
+                      " | Nombre: " + pat.getNombre() +
+                      " | Tipo: " + pat.getTipo_patrocinador());
+}
+ 
+// Crear nuevo
+Persona nuevoPatrocinador = new Patrocinio(
+    id, nombre, correo, contacto, tipo, aporte
+);
+patrocinioList.add(nuevoPatrocinador);
+ 
+// Ver información
+for (Persona p : patrocinioList) {
+    if (p.getId().equals(idBuscado)) {
+        p.mostrarinfo();  // 
+        break;
+    }
+}
+ 
+// Ver rol
+for (Persona p : patrocinioList) {
+    if (p.getId().equals(idBuscado)) {
+        JOptionPane.showMessageDialog(null, p.rol()); 
+        break;
+    }
+}
+```
+ 
+### Menú de Participantes (Mismo patrón)
+ 
+```java
+ArrayList<Persona> participantesList = new ArrayList<>();
 
+// Los mismos 8 casos funcionan con Participante:
+Persona nuevoParticipante = new Participante(
+    id, nombre, correo, ubicacion, rolEspecifico
+);
+participantesList.add(nuevoParticipante);
+ 
+// Y toda la lógica de búsqueda, actualización, etc.
+```
+ 
+---
+ 
+##  Conceptos Implementados
+ 
+| Concepto | Implementación | Beneficio |
+|----------|----------------|-----------|
+| **Abstracción** | Clases `Persona` y `RecursoBase` | Define contratos claros |
+| **Herencia** | `Patrocinio extends Persona` | Reutilización de código |
+| **Polimorfismo** | `ArrayList<Persona>` almacena múltiples tipos | Flexibilidad y escalabilidad |
+| **Interfaces** | `Gestionable` implementada por `RecursoBase` | Comportamiento estandarizado |
+| **Casting** | `(Patrocinio) persona` | Acceso a métodos específicos |
+| **Encapsulación** | `protected` y getters/setters | Control de acceso |
+ 
+---
+ 
+##  Estructura de Clases
+ 
+```
+Persona (abstracta)
+├── Patrocinio
+├── Participante
+├── Verificacion
+└── Proyectos
 
- **Frontend:** (simulacion de frontend) JOptionPane.
-
-## Autores
-  DAVE PAEZ
-
-- [![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)](https://github.com/dave-paez)
-[![Gmail](https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:davepaezm@gmail.com)
-
-JUAN DUARTE
-
-- [![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)](https://github.com/cuartoa2016juanjose-bit)
-[![Gmail](https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:juanjduarteu@gmail.com)
-
-JOHAN WEST
+ 
+RecursoBase (abstracta) implements Gestionable
+├── Recursos
+└── MantenimientoDeRecursos
+ 
+Proyectos (directamente, puede implementar Gestionable)
+ 
+Gestionable (interfaz)
+└── RecursoBase (implementador)
+```
+ 
+---
+ 
+##  Ejemplo Completo de Uso
+ 
+```java
+// Inicializar
+ArrayList<Persona> sistemaPersonas = new ArrayList<>();
+ 
+// Crear un patrocinador (es tipo Persona en la lista)
+Persona patrocinador1 = new Patrocinio(
+    "PAT001", 
+    "Empresa Tech", 
+    "tech@company.com",
+    "555-0001",
+    "Corporativo",
+    "100000"
+);
+ 
+// Crear un participante (también Persona)
+Persona participante1 = new Participante(
+    "PART001",
+    "Juan García",
+    "juan@email.com",
+    "Medellín",
+    "Desarrollador"
+);
+ 
+// Agregar ambos a la MISMA lista
+sistemaPersonas.add(patrocinador1);
+sistemaPersonas.add(participante1);
+ 
+// Procesar de forma genérica
+for (Persona persona : sistemaPersonas) {
+    System.out.println(persona.rol());     // Cada uno retorna su rol
+    persona.mostrarinfo();                 // Cada uno muestra su info
+}
+ 
+// Cuando necesites algo específico, castea:
+Patrocinio pat = (Patrocinio) patrocinador1;
+System.out.println(pat.getAporte_patrocinador()); // Acceso específico
+```
+ 
+---
+ 
+##  Ventajas de Arquitectura
+ 
+ **Escalabilidad** - Agregar nuevas clases es simple, sin modificar código existente  
+ **Mantenibilidad** - Cambios en la lógica común se hacen en un solo lugar  
+ **Reutilización** - Métodos comunes heredados por todas las clases  
+ **Flexibilidad** - Métodos polimórficos se adaptan a cada tipo  
+ **Profesionalismo** - Código limpio y seguible  
+ **Testing** - Más fácil de probar interfaces que implementaciones concretas  
+ 
+---
+ 
+##  Herramientas Utilizadas
+ 
+<div align="center">
   
-- [![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)](https://github.com/wjohan39-jpg)
-[![Gmail](https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:wjohan39@gmail.com)
+![Java](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)
+![Git](https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white)
+![VS Code](https://img.shields.io/badge/VS%20Code-007ACC?style=for-the-badge&logo=visual-studio-code&logoColor=white)
+ 
+**Interface:** JOptionPane (Interfaz gráfica de escritorio)
+ 
+</div>
+---
+ 
+##  Equipo de Desarrollo
+ 
+| Nombre | GitHub | Email |
+|--------|--------|-------|
+| **DAVE PAEZ** | [@dave-paez](https://github.com/dave-paez) | davepaezm@gmail.com |
+| **JUAN DUARTE** | [@cuartoa2016juanjose-bit](https://github.com/cuartoa2016juanjose-bit) | juanjduarteu@gmail.com |
+| **JOHAN WEST** | [@wjohan39-jpg](https://github.com/wjohan39-jpg) | wjohan39@gmail.com |
+| **SAMUEL GONZALE** | [@samuelitogonzabusta3233-tech](https://github.com/samuelitogonzabusta3233-tech) | samuelitogonzabusta3233@gmail.com |
+ 
+---
+ 
+## 📖 Cómo Usar el Sistema
+ 
+### 1️ Iniciar Sesión / Registro
+```
+Menu Principal → 1. Iniciar sesión (o 2. Registrarse)
+```
 
-SAMUEL GONZALE
+<div align="center">
+  <img src="https://i.imgur.com/ZfWZFB9.png" width="700">
+</div>
+ 
+### 2️ Acceder a Módulos
+```
+Menu Principal → [1-5] Según el módulo que necesites
+```
+<div align="center">
+  <img src="https://i.imgur.com/B18kwZK.png" width="700">
+</div>
+ 
+### 3️ Operaciones CRUD
+```
+Cada módulo permite:
+- Ver todos los registros
+- Crear nuevo registro
+- Actualizar registro existente
+- Eliminar registro
+- Operaciones específicas del módulo
+```
+<div align="center">
+  <img src="https://i.imgur.com/LOFkqww.png" width="700">
+</div>
+ 
+##  Diagrama de Flujo
+ 
+```
+┌─────────────────────────┐
+│   MENU PRINCIPAL        │
+├─────────────────────────┤
+│ 1. Proyectos            │ ← ArrayList<Proyectos>
+│ 2. Participantes        │ ← ArrayList<Participante>
+│ 3. Recursos             │ ← ArrayList<Recursos>
+│ 4. Patrocinio           │ ← ArrayList<Persona>
+│ 5. Mantenimiento        │ ← ArrayList<Mantenimiento>
+│ 6. Cerrar sesión        │
+└─────────────────────────┘
+         ↓
+    ┌─────────────┐
+    │ CRUD OPS    │
+    └─────────────┘
+         ↓
+  ┌──────────────────┐
+  │ Polimorfismo     │
+  │ en acción        │
+  └──────────────────┘
+```
+ 
+---
+ 
+## POO Aplicadas
 
-- [![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)](https://github.com/samuelitogonzabusta3233-tech)
-[![Gmail](https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:samuelitogonzabusta3233@gmail.com)
-
+- **Principio DRY** (Don't Repeat Yourself)
+- **Principio SOLID** - Single Responsibility
+- **Patrón Strategy** (vía interfaces)
+- **Patrón Template Method** (vía clases abstractas)
+---
+ 
+##  Notas Finales
+ 
+> "El polimorfismo es la capacidad de un objeto para asumir muchas formas. En Java, esto se logra mediante la herencia y las interfaces."
+Este proyecto demuestra que el verdadero poder de la POO está en **escribir código una sola vez y usarlo en múltiples contextos**, ahorrando tiempo, reduciendo errores y haciendo el código más profesional.
+ 
+---
+ 
+<div align="center">
+  Gracias por usar nuestro software!
+</div>
+ 
