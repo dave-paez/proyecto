@@ -225,6 +225,41 @@ Gestionable (interfaz)
 ```
  
 ---
+
+## Estructura del proyecto
+```
+└── App.java
+    └── 📁proyecto
+        └── 📁.vscode
+        ├── settings.json
+        └── 📁bin
+        └── 📁models
+            ├── Gestionable.class
+            ├── Ioperaciones.class
+            ├── Mantenimientoderecursos.class
+            ├── Participantes.class
+            ├── Patrocinios.class
+            ├── Persona.class
+            ├── proyectos.class
+            ├── RecursoBase.class
+            ├── Recursos.class
+            ├── Verificacion.class
+            ├── App.class
+            └── 📁src
+            └── 📁models
+            ├── Gestionable.java
+            ├── Ioperaciones.java
+            ├── Mantenimientoderecursos.java
+            ├── Participantes.java
+            ├── Patrocinios.java
+            ├── Persona.java
+            ├── Proyectos.java
+            ├── RecursoBase.java
+            ├── Recursos.java
+            ├── Verificacion.java
+         ├── App.java
+         └── README.md
+```
  
 ##  Ejemplo Completo de Uso
  
@@ -308,6 +343,8 @@ Cada módulo permite:
 - Eliminar registro
 - Operaciones específicas del módulo
 ```
+
+
 <div align="center">
   <img src="https://i.imgur.com/LOFkqww.png" width="600">
 </div>
