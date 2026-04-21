@@ -524,7 +524,7 @@ public class App {
 																Persona nuevoPatrocinador = new Patrocinios(Id_delpatrocinador, nombre_delpatrocinador,
 																		correo_delpatrocinador,
 																		contacto_delpatrocinador, tipo_depatrocinador, aporte_delpatrocinador);
-																patrocinioList.add(nuevoPatrocinador);
+																patrocinioList.add((Patrocinios)nuevoPatrocinador);
 																JOptionPane.showMessageDialog(null, "patrocinador hecho");
 															}
 															break;
