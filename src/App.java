@@ -1,3 +1,4 @@
+
 //Importamos los modelos
 import models.Persona;
 import models.Mantenimientoderecursos;
@@ -6,7 +7,6 @@ import models.Patrocinios;
 import models.Recursos;
 import models.Verificacion;
 import models.Proyectos;
-
 
 // importamos el array
 import java.util.ArrayList;
@@ -21,7 +21,7 @@ public class App {
 		ArrayList<Participantes> participantesList = new ArrayList<>();
 		ArrayList<Proyectos> proyectosList = new ArrayList<>();
 		ArrayList<Recursos> recursosList = new ArrayList<>();
-		ArrayList<Patrocinios> patrocinioList = new ArrayList<>();
+		ArrayList<Persona> patrocinioList = new ArrayList<>();
 		ArrayList<Mantenimientoderecursos> mantenimientoList = new ArrayList<>();
 		ArrayList<Verificacion> registroList = new ArrayList<>();
 
@@ -476,7 +476,7 @@ public class App {
 											case 4:
 												// MENU DE PATROCINIO
 												// JUAN DUARTE
-				
+
 												do {
 													opcionpatrocinio = Integer.parseInt(JOptionPane.showInputDialog(
 															"PATROCINIO\n" +
@@ -570,16 +570,16 @@ public class App {
 															break;
 														case 5: // Ver info
 															Id_delpatrocinador = JOptionPane.showInputDialog("Ingrese el ID a buscar:");
-															boolean encontradoo = false;
+															boolean patroooencontradoo = false;
 															for (Persona nombrefor : patrocinioList) {
 																if (nombrefor.getId().equals(Id_delpatrocinador)) {
-																	encontradoo = true;
+																	patroooencontradoo = true;
 																	nombrefor.mostrarinfo();
 																	JOptionPane.showMessageDialog(null, "Ver consola para la información completa");
 																	break;
 																}
 															}
-															if (!encontradoo) {
+															if (!patroooencontradoo) {
 																JOptionPane.showMessageDialog(null, "id no encontrado");
 															}
 															break;
