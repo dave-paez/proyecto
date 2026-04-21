@@ -73,6 +73,7 @@ public class App {
 		String fechaInicio_delproyecto = " ";
 		String fechaFin_delproyecto = " ";
 		String estado_delproyecto;
+			String correo_delproyecto;
 
 		// recursos
 		String Id_delrecurso = " ";
@@ -164,6 +165,7 @@ public class App {
 																estado_delproyecto = JOptionPane.showInputDialog("Ingrese el estado del proyecto");
 																fechaInicio_delproyecto = JOptionPane.showInputDialog("Ingrese la fecha de inicio");
 																fechaFin_delproyecto = JOptionPane.showInputDialog("Ingrese la fecha de fin");
+																correo_delproyecto = JOptionPane.showInputDialog("Ingrese el correo del proyecto");
 																proyectosList.add(new Proyectos(Id_delproyecto, nombre_delproyecto, correo_delproyecto, tipo_delproyecto, descripcion_delproyecto,
 																		fechaInicio_delproyecto, fechaFin_delproyecto, estado_delproyecto));
 																JOptionPane.showMessageDialog(null, "proyecto registrado");
